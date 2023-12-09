@@ -13,9 +13,13 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
+//функция для вывода сообщения если на дом.странице
+
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome, we glad to see you in chat room ")
 }
+
+// обработка соединения + чтение сообщения
 func HandleConnection(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 
@@ -38,6 +42,8 @@ func HandleConnection(w http.ResponseWriter, r *http.Request) {
 		types.BroadCast <- msq
 	}
 }
+
+// / обработка сообщения
 func HandleMessage() {
 	for {
 		msg := <-types.BroadCast
