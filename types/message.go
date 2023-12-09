@@ -11,5 +11,5 @@ type Message struct {
 // клиенты
 var Clients = make(map[*websocket.Conn]bool)
 
-// канал для вывод сообщения
+// канал для вывода сообщения
 var BroadCast = make(chan Message)
