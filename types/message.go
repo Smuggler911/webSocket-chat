@@ -2,7 +2,7 @@ package types
 
 import "github.com/gorilla/websocket"
 
-// типа послыаемого сообщения
+// тип послыаемого сообщения
 type Message struct {
 	Username string `json:"username"`
 	Message  string `json:"message"`
